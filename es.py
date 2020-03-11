@@ -2,21 +2,19 @@
 """
 This python script will take 2 arguments when running.
 The python filename and the .txt file. 
+reference 1: http://www.java2s.com/Code/Python/File/Openafileandreadcharbychar.htm
 """
 import sys
 filename = sys.argv[1]
-k = 0 # DECLARE A VARIBLE TO HOLD THE COUNT
+countE = 0 # DECLARE A VARIBLE TO HOLD THE COUNT
 
-myList = [] # DECLARE A EMPTY LIST
-with open(filename, 'r') as f: # READ THE FILE
-   # LOOP OVER THE CHARS IN THE FILE AND ASSIGN TO A LIST  
-    while 1: 
-       char = f.read(1)
-       if not char: break # BREAK OUT OF THE WHILE LOOP IF THERE ARE NO MORE CHARS
-       myList.append(char) # APPEND EACH CHAR TO THE LIST
-#LOOP OVER THE LIST AND COMPARE EACH CHAR TO THE REQUESTED CHAR
-for x in myList:
-        if(x == 'e'):
-            k+=1
-print(k)
+with open(filename, 'r') as f:
+   while 1: # continous loop 
+      letter = f.read(1)# read every single characher in the file
+      if(letter == 'e'):# compare the current characher to 'e',  
+         countE+=1           #if the condition is true increment the variable counter
+      if(not letter):         # if the next char is empty then break.
+         break
+   f.close
+print(countE)
 
